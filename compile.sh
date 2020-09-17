@@ -6,7 +6,7 @@ function compile()
     echo "génération du makefile ..."
     qmake -makefile ../src/project.pro > /dev/null
     echo "compilation ..."
-    make > /dev/null
+    make -j4 > /dev/null
     if [ $? -gt 0 ]
     then echo "erreur de compilation"
         exit 1
