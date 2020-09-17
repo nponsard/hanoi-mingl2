@@ -28,13 +28,6 @@ const unsigned Size(10); // le nombre de "palets"
 
 MinGL Window("jeu", nsGraphics::Vec2D(WIDTH, HEIGHT), nsGraphics::KGreen);
 
-// affichage de rectangle sans faire crash
-void drawRectClipping(MinGL &Window, nsGraphics::Vec2D posStart,
-                      nsGraphics::Vec2D posEnd,
-                      const nsGraphics::RGBAcolor col) {
-  Window << nsShape::Rectangle(posStart, posEnd, col);
-}
-
 typedef vector<unsigned> tower;
 tower Tleft(Size);
 tower Tmid(0);
@@ -83,33 +76,33 @@ void drawHanoi() {
 
   unsigned y(HEIGHT);
   for (const unsigned i : Tleft) {
-    drawRectClipping(Window, {Xplot1 - i * pasPalet, y - paletHeight},
-                     {Xplot1 + largeurPilier + i * pasPalet, y},
-                     nsGraphics::KRed);
+    Window << nsShape::Rectangle({Xplot1 - i * pasPalet, y - paletHeight},
+                                 {Xplot1 + largeurPilier + i * pasPalet, y},
+                                 nsGraphics::KRed);
     y -= paletHeight;
     cout << i << endl;
   }
   y = HEIGHT;
   for (const unsigned i : Tmid) {
-    drawRectClipping(Window, {Xplot2 - i * pasPalet, y - paletHeight},
-                     {Xplot2 + largeurPilier + i * pasPalet, y},
-                     nsGraphics::KRed);
+    Window << nsShape::Rectangle({Xplot2 - i * pasPalet, y - paletHeight},
+                                 {Xplot2 + largeurPilier + i * pasPalet, y},
+                                 nsGraphics::KRed);
     y -= paletHeight;
   }
   y = HEIGHT;
   for (const unsigned i : Tright) {
-    drawRectClipping(Window, {Xplot3 - i * pasPalet, y - paletHeight},
-                     {Xplot3 + largeurPilier + i * pasPalet, y},
-                     nsGraphics::KRed);
+    Window << nsShape::Rectangle({Xplot3 - i * pasPalet, y - paletHeight},
+                                 {Xplot3 + largeurPilier + i * pasPalet, y},
+                                 nsGraphics::KRed);
     y -= paletHeight;
     cout << i << endl;
   }
-  drawRectClipping(Window, {Xplot1, 0}, {Xplot1 + largeurPilier, HEIGHT},
-                   nsGraphics::KBlack);
-  drawRectClipping(Window, {Xplot2, 0}, {Xplot2 + largeurPilier, HEIGHT},
-                   nsGraphics::KBlack);
-  drawRectClipping(Window, {Xplot3, 0}, {Xplot3 + largeurPilier, HEIGHT},
-                   nsGraphics::KBlack);
+  Window << nsShape::Rectangle({Xplot1, 0}, {Xplot1 + largeurPilier, HEIGHT},
+                               nsGraphics::KBlack);
+  Window << nsShape::Rectangle({Xplot2, 0}, {Xplot2 + largeurPilier, HEIGHT},
+                               nsGraphics::KBlack);
+  Window << nsShape::Rectangle({Xplot3, 0}, {Xplot3 + largeurPilier, HEIGHT},
+                               nsGraphics::KBlack);
   Window.finishFrame();
 
   std::this_thread::sleep_for(std::chrono::milliseconds(10));
