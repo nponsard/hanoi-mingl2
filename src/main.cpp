@@ -26,7 +26,7 @@
 
 using namespace std;
 
-const unsigned Size(10); // le nombre de "palets"
+const unsigned Size(10); // le nombre d’anneaux
 
 MinGL Window("jeu", nsGraphics::Vec2D(WIDTH, HEIGHT), nsGraphics::KGreen);
 
