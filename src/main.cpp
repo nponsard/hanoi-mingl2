@@ -6,8 +6,8 @@
 #include "MinGL2_IUT_AIX/graphics/rgbacolor.h"
 #include "MinGL2_IUT_AIX/graphics/vec2d.h"
 #include "MinGL2_IUT_AIX/mingl.h"
-/*#include "figs/rectangle.h"
 #include "MinGL2_IUT_AIX/shape/rectangle.h"
+/*#include "figs/rectangle.h"
 #include "MinGL2_IUT_AIX/shape/triangle.h"
 #include "figs/circle.h"
 #include "figs/figure.h"*/
