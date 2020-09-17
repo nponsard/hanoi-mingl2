@@ -20,6 +20,8 @@
 #define WIDTH 1800
 #define HEIGHT 1000
 
+#define FRAME_DELAY 10 // temps entre deux mouvements, en millisecondes 
+
 #define TEXT true // if true the text version is sent to the standard C++ output
 
 using namespace std;
@@ -105,7 +107,7 @@ void drawHanoi() {
                                nsGraphics::KBlack);
   Window.finishFrame();
 
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  std::this_thread::sleep_for(std::chrono::milliseconds(FRAME_DELAY));
 }
 
 void deplacementHanoi(tower &TEntree, tower &TSortie) {
