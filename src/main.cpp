@@ -20,8 +20,17 @@
 #define WIDTH 1800
 #define HEIGHT 1000
 
+#define TEXT true // if true the text version is sent to the standard C++ output
+
 using namespace std;
+
+
+const unsigned Size(10); // le nombre de "palets" 
+
+
 MinGL Window("jeu", nsGraphics::Vec2D(WIDTH, HEIGHT), nsGraphics::KGreen);
+
+
 
 
 // affichage de rectangle sans faire crash
@@ -30,7 +39,10 @@ void drawRectClipping(MinGL &Window, nsGraphics::Vec2D posStart,
                       const nsGraphics::RGBAcolor col) {
   Window << nsShape::Rectangle(posStart, posEnd, col);
 }
-const unsigned Size(10);
+
+
+
+
 typedef vector<unsigned> tower;
 tower Tleft(Size);
 tower Tmid(0);
@@ -50,7 +62,6 @@ const unsigned paletHeight(HEIGHT / Tleft.size() - 1);
 const unsigned pasPalet = (Xplot1 / 2) / (Tleft.size());
 
 void drawHanoi2()
-
 {
   cout << "déplacement " << compteur << endl;
   cout << Tleft.size() << Tmid.size() << Tright.size() << endl;
@@ -134,7 +145,6 @@ int main() {
   Window.initGlut();
   Window.initGraphic();
   bool boucle(true);
-  // Window.fullScreen();
 
   drawHanoi();
   hanoi(Tleft.size(), Tleft, Tright, Tmid);
