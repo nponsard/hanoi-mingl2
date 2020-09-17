@@ -3,7 +3,7 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
-include(mingl2/mingl.pri)
+include(MinGL2_IUT_AIX/mingl.pri)
 
 SOURCES += main.cpp \
 

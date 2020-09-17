@@ -3,14 +3,14 @@
     @brief : point d'entrée du jeu
 */
 
-#include "mingl2/graphics/rgbacolor.h"
-#include "mingl2/graphics/vec2d.h"
-#include "mingl2/mingl.h"
+#include "MinGL2_IUT_AIX/graphics/rgbacolor.h"
+#include "MinGL2_IUT_AIX/graphics/vec2d.h"
+#include "MinGL2_IUT_AIX/mingl.h"
 /*#include "figs/rectangle.h"
 #include "figs/circle.h"
 #include "figs/figure.h"*/
-#include "mingl2/shape/rectangle.h"
-#include "mingl2/shape/triangle.h"
+#include "MinGL2_IUT_AIX/shape/rectangle.h"
+#include "MinGL2_IUT_AIX/shape/triangle.h"
 #include <chrono>
 #include <iomanip>
 #include <iostream>

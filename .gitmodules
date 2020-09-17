@@ -1,0 +1,3 @@
+[submodule "src/MinGL2_IUT_AIX"]
+	path = src/MinGL2_IUT_AIX
+	url = https://github.com/cmdetu/MinGL2_IUT_AIX.git
