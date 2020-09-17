@@ -23,21 +23,6 @@
 using namespace std;
 MinGL Window("jeu", nsGraphics::Vec2D(WIDTH, HEIGHT), nsGraphics::KGreen);
 
-// typedef pair<int, bool> keyType; // clef, spécial
-const keyType UP({101, true});
-const keyType DOWN({103, true});
-const keyType LEFT({100, true});
-const keyType RIGHT({102, true});
-const keyType ESCAPE({27, false});
-
-const unsigned frameRate(60);
-const unsigned frameTime(1000 / frameRate);
-
-typedef vector<int> pixelArray;
-typedef vector<pixelArray> pixelMatrix;
-
-const pixelMatrix playerPixels = {
-    {0, 0, 1, 0, 0}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}};
 
 // affichage de rectangle sans faire crash
 void drawRectClipping(MinGL &Window, nsGraphics::Vec2D posStart,
@@ -146,7 +131,6 @@ void hanoi(unsigned n, tower &TOrigin, tower &TOut, tower &Tmid) {
 int main() {
   initCroissant(Tleft);
 
-  auto timer = chrono::steady_clock::now();
   Window.initGlut();
   Window.initGraphic();
   bool boucle(true);
