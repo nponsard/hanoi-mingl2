@@ -7,10 +7,10 @@
 #include "MinGL2_IUT_AIX/graphics/vec2d.h"
 #include "MinGL2_IUT_AIX/mingl.h"
 /*#include "figs/rectangle.h"
-#include "figs/circle.h"
-#include "figs/figure.h"*/
 #include "MinGL2_IUT_AIX/shape/rectangle.h"
 #include "MinGL2_IUT_AIX/shape/triangle.h"
+#include "figs/circle.h"
+#include "figs/figure.h"*/
 #include <chrono>
 #include <iomanip>
 #include <iostream>
@@ -24,14 +24,9 @@
 
 using namespace std;
 
-
-const unsigned Size(10); // le nombre de "palets" 
-
+const unsigned Size(10); // le nombre de "palets"
 
 MinGL Window("jeu", nsGraphics::Vec2D(WIDTH, HEIGHT), nsGraphics::KGreen);
-
-
-
 
 // affichage de rectangle sans faire crash
 void drawRectClipping(MinGL &Window, nsGraphics::Vec2D posStart,
@@ -39,9 +34,6 @@ void drawRectClipping(MinGL &Window, nsGraphics::Vec2D posStart,
                       const nsGraphics::RGBAcolor col) {
   Window << nsShape::Rectangle(posStart, posEnd, col);
 }
-
-
-
 
 typedef vector<unsigned> tower;
 tower Tleft(Size);
@@ -61,8 +53,7 @@ const unsigned Xplot3(3 * WIDTH / 4 - largeurPilier / 2);
 const unsigned paletHeight(HEIGHT / Tleft.size() - 1);
 const unsigned pasPalet = (Xplot1 / 2) / (Tleft.size());
 
-void drawHanoi2()
-{
+void drawHanoi2() {
   cout << "déplacement " << compteur << endl;
   cout << Tleft.size() << Tmid.size() << Tright.size() << endl;
   ++compteur;
@@ -86,7 +77,8 @@ void drawHanoi2()
 }
 void drawHanoi() {
 
-  drawHanoi2();
+  if (TEXT)
+    drawHanoi2();
   Window.clearScreen();
 
   unsigned y(HEIGHT);
@@ -149,7 +141,6 @@ int main() {
   drawHanoi();
   hanoi(Tleft.size(), Tleft, Tright, Tmid);
   std::this_thread::sleep_for(std::chrono::seconds(4));
-
 
   return 0;
 }
